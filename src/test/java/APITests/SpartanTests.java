@@ -1,6 +1,7 @@
 package APITests;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -35,5 +36,19 @@ public class SpartanTests {
         Assert.assertTrue(response.body().asString().contains("Rodolfo"));
         Assert.assertTrue(response.body().asString().contains("Florrie"));
         Assert.assertTrue(response.body().asString().contains("Sinclair"));
+    }
+
+    @Test
+    public void viewSpartanTest3(){
+        Response response = RestAssured.given().accept(ContentType.JSON)
+                .when().get(spartanBaseURL + "/api/spartans");
+
+        //Verify and print status code from response object
+        Assert.assertEquals(response.statusCode(),200);
+        System.out.println("response.statusCode() = " + response.statusCode());
+
+        //printing response content type from response object
+        Assert.assertEquals(response.contentType(),"application/json");
+        System.out.println("response.contentType() = " + response.contentType());
     }
 }
