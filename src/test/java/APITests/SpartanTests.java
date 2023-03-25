@@ -16,7 +16,7 @@ public class SpartanTests {
         //print response status code
         System.out.println(response.statusCode());
 
-        //print response body
+        //print different responses
         response.prettyPrint();
         response.body().print();
         response.body().prettyPeek();
