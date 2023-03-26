@@ -71,6 +71,9 @@ public class SpartansVsPersians {
         //Verify female whether exists in the response
         Assert.assertTrue(response.body().asString().contains("Female"));
 
+        //Verify male does not exist in the response
+        Assert.assertFalse(response.body().asString().contains("Male"));
+
         //Verify Melania whether exists in the response
         Assert.assertTrue(response.body().asString().contains("Melania"));
 
