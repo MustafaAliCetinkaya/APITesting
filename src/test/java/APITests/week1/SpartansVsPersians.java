@@ -7,6 +7,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 public class SpartansVsPersians {
     @BeforeClass
     public void setUpClass(){
@@ -76,6 +80,38 @@ public class SpartansVsPersians {
 
         //Verify Melania whether exists in the response
         Assert.assertTrue(response.body().asString().contains("Melania"));
+
+        response.body().prettyPrint();
+    }
+
+    @Test
+    public void mapQueryParamOnlyFemaleWarriors() {
+        //Creating map for query
+        Map<String, Object>onlyFemaleWarriorsMap=new HashMap<>();
+        onlyFemaleWarriorsMap.put("gender","Female");
+        onlyFemaleWarriorsMap.put("nameContains","j");
+
+        //Send request
+        Response response = RestAssured.given().accept(ContentType.JSON)
+                .and().queryParams(onlyFemaleWarriorsMap)
+                .when().get("/api/spartans/search");
+
+        //Verify and print status code from response object
+        Assert.assertEquals(response.statusCode(),200);
+        System.out.println("response.statusCode() = " + response.statusCode());
+
+        //printing response content type from response object
+        Assert.assertEquals(response.contentType(),"application/json");
+        System.out.println("response.contentType() = " + response.contentType());
+
+        //Verify female whether exists in the response
+        Assert.assertTrue(response.body().asString().contains("Female"));
+
+        //Verify male does not exist in the response
+        Assert.assertFalse(response.body().asString().contains("Male"));
+
+        //Verify Janette whether exists in the response
+        Assert.assertTrue(response.body().asString().contains("Janette"));
 
         response.body().prettyPrint();
     }
