@@ -86,12 +86,12 @@ public class SpartansVsPersians {
 
     @Test
     public void mapQueryParamOnlyFemaleWarriors() {
-        //Creating map for query
+        //Creating map for query. This way keeps request part clean. Same functionality.
         Map<String, Object>onlyFemaleWarriorsMap=new HashMap<>();
         onlyFemaleWarriorsMap.put("gender","Female");
         onlyFemaleWarriorsMap.put("nameContains","j");
 
-        //Send request
+        //Send request, clean way, details are written above.
         Response response = RestAssured.given().accept(ContentType.JSON)
                 .and().queryParams(onlyFemaleWarriorsMap)
                 .when().get("/api/spartans/search");
