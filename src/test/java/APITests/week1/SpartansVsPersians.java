@@ -52,4 +52,28 @@ public class SpartansVsPersians {
 
         response.body().prettyPrint();
     }
+
+    @Test
+    public void queryParamOnlyFemaleWarriors() {
+        Response response = RestAssured.given().accept(ContentType.JSON)
+                .and().queryParam("gender","Female")
+                .and().queryParam("nameContains","m")
+                .when().get("/api/spartans/search");
+
+        //Verify and print status code from response object
+        Assert.assertEquals(response.statusCode(),200);
+        System.out.println("response.statusCode() = " + response.statusCode());
+
+        //printing response content type from response object
+        Assert.assertEquals(response.contentType(),"application/json");
+        System.out.println("response.contentType() = " + response.contentType());
+
+        //Verify female whether exists in the response
+        Assert.assertTrue(response.body().asString().contains("Female"));
+
+        //Verify Melania whether exists in the response
+        Assert.assertTrue(response.body().asString().contains("Melania"));
+
+        response.body().prettyPrint();
+    }
 }
