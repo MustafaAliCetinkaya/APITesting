@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class SpartanTests {
 
-    String spartanBaseURL="http://54.89.14.144:8000";
+    String spartanBaseURL="http://34.229.189.11:8000";
     @Test
     public void viewSpartanTest1(){
         //send a get request and save response inside the Response object
