@@ -55,7 +55,6 @@ public class SpartanGetRequests {
         Response response = RestAssured.given().accept(ContentType.JSON).
                 when().get(baseUrl + "/api/spartans/3");
 
-
         //verify status code 200
         Assertions.assertEquals(200,response.statusCode());
 
@@ -84,14 +83,15 @@ public class SpartanGetRequests {
         Response response = RestAssured.when().get(baseUrl + "/api/hello");
 
         //verify status code 200
-        Assertions.assertEquals(200,response.statusCode());
+        Assertions.assertEquals(200,response.statusCode());//This assertion type comes from Junit-5
 
         //verify content type
-        Assertions.assertEquals("text/plain;charset=UTF-8",response.contentType());
+        Assertions.assertEquals("text/plain;charset=UTF-8",response.contentType());//This assertion type comes from Junit-5
 
         //verify we have headers named date
         //we use hasHeaderWithname method to verify header exist or not - it returns boolean
         Assertions.assertTrue(response.headers().hasHeaderWithName("Date"));
+
         //how to get and header from response using header key ?
         //we use response.header(String headerName) method to get any header value
         System.out.println("response.header(\"Content-Length\") = " + response.header("Content-Length"));
@@ -99,6 +99,7 @@ public class SpartanGetRequests {
 
         //verify content length is 17
         Assertions.assertEquals("17",response.header("Content-Length"));
+
         //verify body is "Hello from Sparta"
         Assertions.assertEquals("Hello from Sparta",response.body().asString());
     }
