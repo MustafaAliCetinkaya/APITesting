@@ -42,7 +42,7 @@ public class AutomationExercises {
     }
 
     @Test
-    public void automationExercisesWithPositivePathParameters() {
+    public void automationExercisesStoreDetailsInMAp() {
 
         Response response = RestAssured.get("/api/productsList");
         response.jsonPath().getList("products.id");
@@ -65,7 +65,7 @@ public class AutomationExercises {
 
         //loop through each row
         for (int i = 1; i <= listSize; i++) {
-            if (i != 34) {
+            if (i != 34) {//34. item does not exist
 
                 Map<String, Object> eachItemDetails = new LinkedHashMap<>();
 
