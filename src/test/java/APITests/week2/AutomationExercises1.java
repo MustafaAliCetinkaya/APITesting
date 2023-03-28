@@ -2,7 +2,6 @@ package APITests.week2;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.apache.http.util.Asserts;
 import org.junit.jupiter.api.Assertions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -13,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AutomationExercises {
+public class AutomationExercises1 {
     @BeforeClass
     public void setUpClass() {
         RestAssured.baseURI = "https://automationexercise.com";
