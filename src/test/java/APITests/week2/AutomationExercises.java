@@ -1,19 +1,20 @@
 package APITests.week2;
 
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AutomationExercises {
     @BeforeClass
-    public void setUpClass(){
-        RestAssured.baseURI ="https://automationexercise.com";
+    public void setUpClass() {
+        RestAssured.baseURI = "https://automationexercise.com";
     }
 
     @Test
@@ -23,7 +24,7 @@ public class AutomationExercises {
         Response response = RestAssured.get("/api/productsList");//Simple string concentration for the remaining part of the URL
 
         //Verify and print status code from response object
-        Assert.assertEquals(response.statusCode(),200);
+        Assert.assertEquals(response.statusCode(), 200);
         System.out.println("response.statusCode() = " + response.statusCode());
 
         //printing response content type from response object
@@ -39,6 +40,7 @@ public class AutomationExercises {
         System.out.println(response.body().asString());
         System.out.println("----------------response.body().asString()-----------------");
     }
+
     @Test
     public void automationExercisesWithPositivePathParameters() {
 
@@ -46,10 +48,43 @@ public class AutomationExercises {
         response.jsonPath().getList("products.id");
 
         System.out.println("responseAllItemsIDList = " + response.jsonPath().getList("products.id"));
+
+        System.out.println("----------------------------------");
+
         System.out.println("responseAllItemsNameList = " + response.jsonPath().getList("products.name"));
 
-        Assert.assertEquals(response.jsonPath().getList("products.id").size(),response.jsonPath().getList("products.name").size());
+        Assert.assertEquals(response.jsonPath().getList("products.id").size(), response.jsonPath().getList("products.name").size());
 
+        System.out.println("----------------------------------");
+
+        //list of maps to keep all information
+        List<Map<String, Object>> queryData = new ArrayList<>();
+
+        //number of columns
+        int listSize = response.jsonPath().getList("products.id").size();
+
+        //loop through each row
+        for (int i = 1; i <= listSize; i++) {
+            if (i != 34) {
+
+                Map<String, Object> eachItemDetails = new LinkedHashMap<>();
+
+                eachItemDetails.put("id", response.jsonPath().getList("products.id").get(i));
+                eachItemDetails.put("name", response.jsonPath().getList("products.name").get(i));
+                eachItemDetails.put("price", response.jsonPath().getList("products.price").get(i));
+                eachItemDetails.put("brand", response.jsonPath().getList("products.brand").get(i));
+                eachItemDetails.put("category", response.jsonPath().getList("products.category").get(i));
+                eachItemDetails.put("category", response.jsonPath().getList("products.category").get(i));
+
+                //add ready current map details to the list
+                queryData.add(eachItemDetails);
+            }
+        }
+
+        for (Map<String, Object> eachItemDetails : queryData) {
+            System.out.println(eachItemDetails);
+            System.out.println("----------------------------------");
+        }
     }
 
 }
