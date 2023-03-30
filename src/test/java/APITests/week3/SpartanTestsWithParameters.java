@@ -35,7 +35,7 @@ public class SpartanTestsWithParameters {
 
         Response response = given().
                                       accept(ContentType.JSON)
-                                      .and().pathParam("id", 5)
+                                      .and().pathParam("id", 5)//and() is facilitate to read only. Not have a unique action. If you delete nothing happens.
                             .when()
                                      .get("/api/spartans/{id}");
         //verify status code
