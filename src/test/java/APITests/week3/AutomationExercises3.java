@@ -54,7 +54,12 @@ public class AutomationExercises3 {
         Assertions.assertEquals("{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}",response.header("NEL"));
         Assertions.assertEquals("cloudflare",response.header("Server"));
         Assertions.assertEquals("200 OK",response.header("status"));
+        //Verify body contains necessary info from response
+        Assertions.assertTrue(response.body().asString().contains("Blue Top"));
+        Assertions.assertTrue(response.body().asString().contains("Men Tshirt"));
+        Assertions.assertTrue(response.body().asString().contains("Summer White Top"));
+        Assertions.assertTrue(response.body().asString().contains("Sleeves Printed Top - White"));
+        Assertions.assertTrue(response.body().asString().contains("Printed Off Shoulder Top - White"));
+
     }
-
-
 }
