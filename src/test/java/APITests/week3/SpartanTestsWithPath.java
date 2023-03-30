@@ -47,7 +47,7 @@ public class SpartanTestsWithPath extends SpartanTestBase {
         String name = response.path("name");
         String gender = response.path("gender");
         long phone = response.path("phone");
-
+        System.out.println("----------------------------");
         System.out.println("id = " + id);
         System.out.println("name = " + name);
         System.out.println("gender = " + gender);
