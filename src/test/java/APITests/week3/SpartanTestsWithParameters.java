@@ -26,7 +26,7 @@ public class SpartanTestsWithParameters {
           When user sends GET request to /api/spartans/{id}
           Then response status code should be 200
           And response content-type: application/json
-          And "Blythe" should be in response payload
+          And "Blythe" should be in response payload (means BODY)
        */
 
     @DisplayName("GET request to /api/spartans/{id} with ID 5")
