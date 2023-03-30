@@ -94,7 +94,7 @@ public class SpartanTestsWithParameters {
     @DisplayName("GET request to /api/spartans/search with Query Params")
     @Test
     public void test3(){
-    Response response= given().log().all().
+    Response response= given().log().all().//Shows every details about search. Not mandatory, helps to see what is going on
                                 accept(ContentType.JSON)
                               .and().queryParam("nameContains","e")
                               .and().queryParam("gender","Female")
