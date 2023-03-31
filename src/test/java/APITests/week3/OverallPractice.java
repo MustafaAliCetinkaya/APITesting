@@ -99,4 +99,24 @@ public class OverallPractice {
         Assertions.assertEquals("Miss from cloudfront",response.header("X-Cache"));
 
     }
+
+    @DisplayName("GET request to API Ninja for Images")
+    @Test
+    public void randomImagesTest() {
+
+        Response response = given().
+                accept(ContentType.JSON).
+                headers("X-Api-Key", "fTvPGrLMlIsPjpiNxn+mWQ==63ni5lWJUY33cSMk").    //X-Api-Key (required) - API Key associated with your account.
+                headers("Accept","image/jpg")
+                .and().queryParam("category", "city")
+                .and().queryParam("limit", 50)      //limit (optional) - How many results to return. Must be between 1 and 50. Default is 5.
+                .when()
+                .get("/randomimage");
+
+        //verify status code
+        assertEquals(200, response.statusCode());
+        assertEquals("image/jpg",response.contentType());
+
+       response.body().peek();
+    }
 }
