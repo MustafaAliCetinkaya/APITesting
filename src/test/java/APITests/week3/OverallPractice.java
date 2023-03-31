@@ -29,18 +29,21 @@ public class OverallPractice {
 
         Response response = given().
                 accept(ContentType.JSON).
-                headers("X-Api-Key", "fTvPGrLMlIsPjpiNxn+mWQ==63ni5lWJUY33cSMk")
+                headers("X-Api-Key", "fTvPGrLMlIsPjpiNxn+mWQ==63ni5lWJUY33cSMk")    //X-Api-Key (required) - API Key associated with your account.
                 .and().queryParam("make", "toyota")
-                .and().queryParam("limit", 50)
+                .and().queryParam("limit", 50)      //limit (optional) - How many results to return. Must be between 1 and 50. Default is 5.
                 .when()
                 .get("/cars");
+
         //verify status code
         assertEquals(200, response.statusCode());
         System.out.println("response.contentType() = " + response.contentType());
+        assertEquals("application/json",response.contentType());
 
         //List of all models
         List<String> carsMap = response.jsonPath().getList("model");
-        //System.out.println(carsMap);
+        //System.out.println(carsMap);  ==> Prints only the models of the cars
+        //response.prettyPrint();       ==> Prints all of the cars
 
         //list of maps to keep all information
         List<Map<String, String>> allModelsAndYears = new ArrayList<>();
