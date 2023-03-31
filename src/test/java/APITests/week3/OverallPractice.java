@@ -60,6 +60,7 @@ public class OverallPractice {
             allModelsAndYears.add(eachCarInfo);
         }
 
+
         for (Map<String, String> eachModelsAndYear : allModelsAndYears) {
             System.out.println(eachModelsAndYear);
             System.out.println("----------------------------------");
