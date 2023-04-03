@@ -31,5 +31,4 @@ public class SpartanTestsConvertJsonToCollection extends SpartanTestBase {
         assertEquals(7.959094216E9,spartanMap.get("phone"));
 
     }
-
 }
