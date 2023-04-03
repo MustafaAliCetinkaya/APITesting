@@ -44,7 +44,7 @@ public class SpartanTestsDeserialization extends SpartanTestBase {
         SpartanPojo spartan =new SpartanPojo(101, 9798761225l,"Pala","Male");
 
         //Converting custom class to json (Serialization)
-        String convertedBodyToJson= gson.toJson(spartan);
+        String convertedBodyToJson= gson.toJson(spartan);//We have key and value structure in it.
         System.out.println("convertedBodyToJson = " + convertedBodyToJson);
 
 
