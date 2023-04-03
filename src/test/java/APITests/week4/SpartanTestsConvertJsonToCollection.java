@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.testng.Assert;
 
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -29,6 +30,27 @@ public class SpartanTestsConvertJsonToCollection extends SpartanTestBase {
         assertEquals("Nona",spartanMap.get("name"));
         assertEquals("Female",spartanMap.get("gender"));
         assertEquals(7.959094216E9,spartanMap.get("phone"));
+
+    }
+    @DisplayName("ConvertJsonToCollection")
+    @Test
+    public void test2() {
+        Response response = (Response) given().accept(ContentType.JSON)
+                .when().get("/api/spartans");
+
+        //We convert json file by using as(Map.class) to Java Collections-Map
+        List<Map <String,Object>>spartanList = response.body().as(List.class);  //De-Serialization (Collections)==> from Json to MAP
+        System.out.println("First spartan: "+spartanList.get(0));
+        System.out.println("First spartan's name: "+spartanList.get(0).get("name"));
+
+        int counter=1;
+        for (Map<String, Object> eachMap : spartanList) {
+            System.out.println(counter+". spartan : "+eachMap);
+            System.out.println("--------------"+counter+" .spartan is written above"+"----------------");
+            counter++;
+        }
+
+
 
     }
 }
