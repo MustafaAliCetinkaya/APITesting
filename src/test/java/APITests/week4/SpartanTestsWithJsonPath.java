@@ -46,5 +46,4 @@ public class SpartanTestsWithJsonPath extends SpartanTestBase {
         System.out.println("phone1 = " + phone);
 
     }
-
 }
