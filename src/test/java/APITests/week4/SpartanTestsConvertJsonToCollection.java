@@ -48,7 +48,5 @@ public class SpartanTestsConvertJsonToCollection extends SpartanTestBase {
             counter++;
         }
 
-
-
     }
 }
