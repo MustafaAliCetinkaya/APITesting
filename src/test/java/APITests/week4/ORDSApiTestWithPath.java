@@ -75,8 +75,6 @@ public class ORDSApiTestWithPath extends HRTestBase {
             assertEquals("IT_PROG",jobID);
         }
 
-        //HW
-        //print name of each IT_PROGs
 
     }
 
