@@ -1,4 +1,4 @@
-package APITests.week4;
+package APITests.week5;
 
 import APITests.utilities.SpartanTestBase;
 import com.github.javafaker.Faker;
