@@ -12,22 +12,29 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SpartanTestsConvertJsonToCollection extends SpartanTestBase {
-    @DisplayName("ConvertJsonToCollection")
+public class SpartanPOSTRequestWithString extends SpartanTestBase {
+    @DisplayName("POST Request with String")
     @Test
     public void test1() {
+        //Sending json body as string
         Response response = (Response) given().accept(ContentType.JSON)
-                .and().pathParam("id", 11)
-                .when().get("/api/spartans/{id}");
+                .contentType("application/json")
+                .body("{\n" +
+                        "    \"gender\":\"Male\",\n" +
+                        "    \"name\":\"Pala Remzi\",\n" +
+                        "    \"phone\":988776543324\n" +
+                        "\n" +
+                        "}")
+                .when().post("/api/spartans");
 
-        //We convert json file by using as(Map.class) to Java Collections-Map
-        Map <String,Object>spartanMap = response.body().as(Map.class);  //De-Serialization (Collections)==> from Json to MAP
-        System.out.println(spartanMap);
+        //Validations / Verify Status Code is 201
+        assertEquals(response.statusCode(),201);
+        assertEquals(response.contentType(),"application/json");
 
-        //Verify expected values in map
-        assertEquals("Nona",spartanMap.get("name"));
-        assertEquals("Female",spartanMap.get("gender"));
-        assertEquals(7.959094216E9,spartanMap.get("phone"));
+        //Verify request body
+        assertEquals(response.jsonPath().getString("data.name"),"Pala Remzi");
+        assertEquals(response.jsonPath().getString("data.gender"),"Male");
+        assertEquals(response.jsonPath().getLong("data.phone"),988776543324L);
 
     }
     @DisplayName("ConvertJsonToCollection")
