@@ -18,7 +18,7 @@ public class SpartanPUT extends SpartanTestBase {
     public void PUTWithMap() {
         //Create fake data for spartans
         Faker faker = new Faker();
-        int id = faker.number().numberBetween(107, 117);
+        int id = faker.number().numberBetween(110, 117);
         String name = faker.name().firstName();
 
         //Using  Map for putting data
