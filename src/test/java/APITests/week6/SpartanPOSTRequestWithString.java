@@ -1,4 +1,4 @@
-package APITests.week5;
+package APITests.week6;
 
 import APITests.utilities.SpartanTestBase;
 import io.restassured.http.ContentType;
@@ -7,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;

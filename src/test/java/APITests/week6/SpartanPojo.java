@@ -1,4 +1,4 @@
-package APITests.week5;
+package APITests.week6;
 
 public class SpartanPojo {
     private int id;

@@ -1,4 +1,4 @@
-package APITests.week5;
+package APITests.week6;
 
 import APITests.utilities.SpartanTestBase;
 import io.restassured.http.ContentType;
