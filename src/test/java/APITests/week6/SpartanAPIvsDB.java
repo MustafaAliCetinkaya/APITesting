@@ -1,4 +1,4 @@
-package APITests.week5;
+package APITests.week6;
 
 import APITests.utilities.DBUtils;
 import APITests.utilities.SpartanTestBase;

@@ -1,6 +1,7 @@
-package APITests.week6;
+package APITests.week7;
 
 import APITests.utilities.SpartanTestBase;
+import APITests.week6.SpartanPojo;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
