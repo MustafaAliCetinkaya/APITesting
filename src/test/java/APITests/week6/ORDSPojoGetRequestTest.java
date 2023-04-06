@@ -22,7 +22,7 @@ public class ORDSPojoGetRequestTest extends HRTestBase {
                 .then().statusCode(200).log().body()
                 .extract().jsonPath();
 
-        Region region1 = jsonPath.getObject("items[0]", Region.class);
+        Region region1 = jsonPath.getObject("items[0]", Region.class);//Thanks to path we can store only the specified object.
 
         System.out.println(region1);
 
