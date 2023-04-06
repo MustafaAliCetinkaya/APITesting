@@ -61,12 +61,11 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
                             .extract().jsonPath();
 
     //get the first spartan from content list and put inside spartan object
-        Spartan s1 = jsonPath.getObject("content[0]", Spartan.class);
+        Spartan s1 = jsonPath.getObject("content[0]", Spartan.class);//More flexible. We can determine which data will be stored by using path (index)
 
         System.out.println("s1 = " + s1);
         System.out.println("s1.getName() = " + s1.getName());
         System.out.println("s1.getGender() = " + s1.getGender());
-
 
     }
 
@@ -74,14 +73,17 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
     public void test3(){
         Response response = given().accept(ContentType.JSON)
                 .and().queryParams("nameContains", "a",
-                        "gender", "Male")
+                        "gender", "Female")
                 .when().get("/api/spartans/search")
                 .then().statusCode(200)
                 .extract().response();
 
         Search searchResult = response.as(Search.class);
 
-        System.out.println(searchResult.getContent().get(0).getName());
+        System.out.println("Whole content: "+searchResult.getContent());
+        System.out.println("---------------Second spartan in list-----------------");
+        System.out.println(searchResult.getContent().get(1));
+        System.out.println("Name of the first spartan: "+searchResult.getContent().get(0).getName());
     }
 
     @DisplayName("GET  /spartans/search and save as List<Spartan>")
@@ -90,15 +92,16 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
         List<Spartan> spartanList = given()
                 .accept(ContentType.JSON)
                 .and()
-                .queryParams("nameContains", "a",
-                        "gender", "Male")
+                .queryParams("nameContains", "v",
+                        "gender", "Female")
                 .when()
                 .get("/api/spartans/search")
                 .then()
                 .statusCode(200)
-                .extract().jsonPath().getList("items", Spartan.class);
+                .extract().jsonPath().getList("content", Spartan.class);
 
-        System.out.println(spartanList.get(1).getName());
+        System.out.println(spartanList);
+        System.out.println("Name of the second spartan: "+spartanList.get(1).getName());
 
     }
 

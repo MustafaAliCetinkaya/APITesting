@@ -18,7 +18,9 @@ public class ORDSPojoGetRequestTest extends HRTestBase {
     @Test
     public void regionTest(){
 
-        JsonPath jsonPath = get("/regions").then().statusCode(200).log().body().extract().jsonPath();
+        JsonPath jsonPath = get("/regions")
+                .then().statusCode(200).log().body()
+                .extract().jsonPath();
 
         Region region1 = jsonPath.getObject("items[0]", Region.class);
 

@@ -10,12 +10,12 @@ import java.util.*;
 @ToString
 public class Region {
     //region_id
-    //if your jsonkey and variable name not matching, you can map it with jsonProperty
+    //if your json key and variable name not matching, you can map it with jsonProperty
     @JsonProperty("region_id")
     private int rId;
     @JsonProperty("region_name")
     private String region_name;
     @JsonProperty("links")
-    private List<Link> links;
+    private List<Link> links;   //This variable make a connection with Link class.
 
 }
