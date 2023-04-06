@@ -27,8 +27,8 @@ public class SpartanHamcrestTest extends SpartanTestBase {
                                 .statusCode(200)
                                 .and()
                                 .body("totalElement",greaterThanOrEqualTo(3))
-                                .extract().response().jsonPath().getList("content.name");
-
+                                .extract().response().jsonPath().getList("content.name");//We can directly write jsonPath also without using the response
+                        //Thanks to extract method we can store the response data easily in desired data type
         System.out.println(names);
 
     }

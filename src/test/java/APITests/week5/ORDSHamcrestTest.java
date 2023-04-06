@@ -43,7 +43,7 @@ public class ORDSHamcrestTest extends HRTestBase {
     public void employeesTest2(){
         //we want to chain and also get response object
 
-        JsonPath jsonPath = given().accept(ContentType.JSON)
+        JsonPath jsonPath = given().accept(ContentType.JSON).log().all()//This log stores the request infos
                 .and().queryParam("q", "{\"job_id\": \"IT_PROG\"}")
                 .when()
                 .get("/employees")
