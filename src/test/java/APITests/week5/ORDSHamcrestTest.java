@@ -43,16 +43,16 @@ public class ORDSHamcrestTest extends HRTestBase {
     public void employeesTest2(){
         //we want to chain and also get response object
 
-
         JsonPath jsonPath = given().accept(ContentType.JSON)
                 .and().queryParam("q", "{\"job_id\": \"IT_PROG\"}")
                 .when()
                 .get("/employees")
-                .then()
+                .then()//provide us different methods after it
                 .statusCode(200)
                 .body("items.job_id", everyItem(equalTo("IT_PROG")))
-                .extract().jsonPath();
+                .extract().jsonPath();//Extract is a magical method
         //extract() --> method that allow us to get response object after we use then() method.
+
         //assert that we have only 5 firstnames
         assertThat(jsonPath.getList("items.first_name"),hasSize(5));
 
