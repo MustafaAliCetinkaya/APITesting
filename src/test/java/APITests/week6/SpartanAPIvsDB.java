@@ -27,7 +27,7 @@ public class SpartanAPIvsDB extends SpartanTestBase {
 
         //save data inside the map
         Map<String, Object> dbMap = DBUtils.getRowMap(query);
-        System.out.println(dbMap);
+        System.out.println("Comes from directly DB: "+dbMap);
 
         //2.get info from api
         Response response = given().accept(ContentType.JSON)
@@ -39,9 +39,9 @@ public class SpartanAPIvsDB extends SpartanTestBase {
                 .and().contentType("application/json")
                 .extract().response();
 
-        //Deserialization here JSon to Java  with Jackson objectMapper
+        //Deserialization here JSon to Java  with Jackson (Gson) objectMapper
         Map<String,Object> apiMap= response.as(Map.class);
-        System.out.println(apiMap);
+        System.out.println("Comes from API: "+apiMap);
 
         //3.compare database vs api --> we assume expected result is db
         assertThat(apiMap.get("id").toString(),is(dbMap.get("SPARTAN_ID").toString()));
