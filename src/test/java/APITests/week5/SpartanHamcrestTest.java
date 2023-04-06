@@ -49,7 +49,7 @@ public class SpartanHamcrestTest extends SpartanTestBase {
                 .statusCode(200)
                 .and()
                 .body("totalElement",greaterThanOrEqualTo(3))
-                .extract().response().statusCode();
+                .extract().response().statusCode();//After extract() method we can directly write whatever we want without using response as well
 
         System.out.println(statusCode);
 
