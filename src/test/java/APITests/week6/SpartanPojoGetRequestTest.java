@@ -1,6 +1,4 @@
 package APITests.week6;
-
-
 import APITests.Pojo.Search;
 import APITests.Pojo.Spartan;
 import APITests.utilities.SpartanTestBase;
@@ -8,7 +6,6 @@ import io.restassured.http.*;
 import io.restassured.path.json.*;
 import io.restassured.response.*;
 import org.junit.jupiter.api.*;
-
 import java.util.*;
 
 import static io.restassured.RestAssured.*;
@@ -31,6 +28,8 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
         //1.using as() method
         //we convert json response to spartan object with the help of jackson
         //as() method uses jackson to de serialize(converting JSON to Java class)
+        System.out.println("---------------De serialize --> JSON to POJO (java custom class)-----------------");
+
         Spartan spartan15 = response.as(Spartan.class);
         System.out.println(spartan15);
         System.out.println("spartan15.getId() = " + spartan15.getId());
