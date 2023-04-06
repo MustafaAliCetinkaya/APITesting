@@ -36,9 +36,11 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
         System.out.println("spartan15.getGender() = " + spartan15.getGender());
 
         //second way of deserialize json to java
+        System.out.println("---------------Second way of deserialize json to java-----------------");
         //2.using JsonPath to deserialize to custom class
         JsonPath jsonPath = response.jsonPath();
 
+        //Instead of using as() method we can use below-mentioned method as well
         Spartan s15 = jsonPath.getObject("", Spartan.class);
 
         System.out.println(s15);
