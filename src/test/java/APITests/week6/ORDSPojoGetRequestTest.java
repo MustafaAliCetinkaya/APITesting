@@ -55,7 +55,7 @@ public class ORDSPojoGetRequestTest extends HRTestBase {
     @DisplayName("GET request to region only some fields test")
     @Test
     public void regionPojoTest(){
-        //send a get request and save everthing inside the regions object
+        //send a get request and save everything inside the regions object
         //since we prepare pojo also for the all properties we dont need to use any path so as() method is enough
         Regions regions = get("/regions").then().statusCode(200).extract().response().as(Regions.class);
 
@@ -66,11 +66,11 @@ public class ORDSPojoGetRequestTest extends HRTestBase {
         List<Integer> regionIds = new ArrayList<>();
 
         //get list of regions out of regions object
-        List<Region> items = regions.getItems();
+        List<Regions> items = regions.getItems();
 
         //loop through each of the region, save their ids and names to empty list that we prepare
-        for (Region region : items) {
-            regionIds.add(region.getRId());
+        for (Regions region : items) {
+            regionIds.add(Integer.valueOf(region.getRegion_id()));
             regionNames.add(region.getRegion_name());
         }
         System.out.println("regionIds = " + regionIds);

@@ -18,4 +18,9 @@ public class Region {
     @JsonProperty("links")
     private List<Link> links;   //This variable make a connection with Link class.
 
+    private List<Regions> items;
+    private boolean hasMore;
+    private int limit;
+    private int offset;
+    private int count;
 }
