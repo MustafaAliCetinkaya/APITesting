@@ -18,14 +18,15 @@ public class SpartanPUTPATCH extends SpartanTestBase {
     public void PUTWithMap() {
         //Create fake data for spartans
         Faker faker = new Faker();
-        int id = faker.number().numberBetween(114, 116);
+        int id = faker.number().numberBetween(120, 121);
         String name = faker.name().firstName();
+        long phone= faker.number().numberBetween(100000000,99999999999L);
 
         //Using  Map for putting data
         Map<String, Object> updateSpartanWithPut = new HashMap<>();
         updateSpartanWithPut.put("name", name);
         updateSpartanWithPut.put("gender", "Female");
-        updateSpartanWithPut.put("phone", 348756433412L);
+        updateSpartanWithPut.put("phone", phone);
 
         System.out.println("updateSpartanWithPut = " + updateSpartanWithPut + " updated id: " + id);//To see which one is updated
 
