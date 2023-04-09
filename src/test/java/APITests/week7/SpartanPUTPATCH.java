@@ -18,7 +18,7 @@ public class SpartanPUTPATCH extends SpartanTestBase {
     public void PUTWithMap() {
         //Create fake data for spartans
         Faker faker = new Faker();
-        int id = faker.number().numberBetween(120, 121);
+        int id = faker.number().numberBetween(140, 146);
         String name = faker.name().firstName();
         long phone= faker.number().numberBetween(100000000,99999999999L);
 
@@ -45,7 +45,7 @@ public class SpartanPUTPATCH extends SpartanTestBase {
     public void PATCHWithMap() {
         //Create fake data for spartans
         Faker faker = new Faker();
-        int id = faker.number().numberBetween(110, 117);
+        int id = faker.number().numberBetween(140, 151);
 
         //Using  Map for putting data
         Map<String, Object> updateSpartanWithPatch = new HashMap<>();
