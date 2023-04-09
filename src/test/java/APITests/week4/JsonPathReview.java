@@ -86,7 +86,7 @@ public class JsonPathReview {
         Response response = RestAssured.given().accept(ContentType.JSON)
                 .when().get("https://demoqa.com/BookStore/v1/Books");
 
-//        response.prettyPrint();
+        response.prettyPrint();
 
         JsonPath jsonPath = response.jsonPath();
         int pageNum = jsonPath.getInt("books[0].pages");
