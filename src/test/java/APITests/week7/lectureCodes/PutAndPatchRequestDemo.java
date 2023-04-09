@@ -16,7 +16,7 @@ public class PutAndPatchRequestDemo extends SpartanTestBase {
     public void PUTRequest(){
         //just like post request we have different options to send body, we will go with map
         Map<String,Object> putRequestMap = new LinkedHashMap<>();
-        putRequestMap.put("name","BruceWayne");
+        putRequestMap.put("name","Dolgorukov");
         putRequestMap.put("gender","Male");
         putRequestMap.put("phone",8811111111L);
 
