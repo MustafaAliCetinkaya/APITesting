@@ -53,7 +53,7 @@ public class SpartanWithAuthTests extends SpartanAuthTestBase {
     /*
         As a homework,write a detailed test for Role Base Access Control(RBAC)
             in Spartan Auth app (7000)
-            Admin should be able take all CRUD
+            Admin should be able to take all CRUD-Create read update delete
             Editor should be able to take all CRUD
                 other than DELETE
             User should be able to only READ data

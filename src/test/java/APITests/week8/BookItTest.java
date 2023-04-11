@@ -20,7 +20,7 @@ public class BookItTest {
     @DisplayName("GET all campuses")
     @Test
     public void testAuth1(){
-        //how to pass bearer token for bookit ? use header method to give as key value header
+        //how to pass bearer token for bookIt ? use header method to give as key value header
       given().
                 header("Authorization",accessToken)
                 .and().accept(ContentType.JSON)
@@ -31,6 +31,5 @@ public class BookItTest {
                 .log().all();
 
     }
-
 
 }
