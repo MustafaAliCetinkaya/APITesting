@@ -23,7 +23,7 @@ public class SpartanWithAuthTests extends SpartanAuthTestBase {
     @DisplayName("GET /api/spartans as admin user expect 200")
     @Test
     public void testAdmin(){
-        //how to pass admin admin as a username and password ?
+        //how to pass admin-admin as a username and password ?
         given()
                 .auth().basic("admin","admin")
                 .and().accept(ContentType.JSON)
