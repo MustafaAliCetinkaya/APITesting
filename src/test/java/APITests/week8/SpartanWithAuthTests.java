@@ -16,8 +16,8 @@ public class SpartanWithAuthTests extends SpartanAuthTestBase {
             get("/api/spartans")
                     .then().statusCode(401)
                     .log().all();
-
-
+//We did not introduce ourselves to the API. It does not know us.
+//We should send our authorization info in the header.
     }
 
     @DisplayName("GET /api/spartans as admin user expect 200")
@@ -33,7 +33,7 @@ public class SpartanWithAuthTests extends SpartanAuthTestBase {
         .then()
                 .statusCode(200)
                 .log().all();
-
+//System knows us and since we have necessary authorization, it returns the spartans
     }
 
     @DisplayName("DELETE /spartans/{id} as editor user expect 403")
@@ -46,8 +46,8 @@ public class SpartanWithAuthTests extends SpartanAuthTestBase {
         .when()
                 .delete("/api/spartans/{id}")
         .then()
-                .statusCode(403)
-                 .log().body();
+                .statusCode(403)//We introduced ourselves to the system but still throws error.
+                 .log().body();                 //Because we do not have permission to delete the spartan
     }
 
     /*
