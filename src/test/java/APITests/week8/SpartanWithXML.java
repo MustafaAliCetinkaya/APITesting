@@ -50,10 +50,10 @@ public class SpartanWithXML extends SpartanAuthTestBase {
         //get response xml body/payload and save inside the xmlpath object
         XmlPath xmlPath = response.xmlPath();
 
-
         //get first spartan name
         String name = xmlPath.getString("List.item[0].name");
         System.out.println("name = " + name);
+
         //get the 3rd spartan id number
         int id = xmlPath.getInt("List.item[2].id");
         System.out.println("id = " + id);
@@ -63,6 +63,4 @@ public class SpartanWithXML extends SpartanAuthTestBase {
         System.out.println(names);
 
     }
-
-
 }
