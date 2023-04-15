@@ -42,15 +42,15 @@ public class FormulaOneXmlTest {
 
         //if you are trying to get attribute we use @ sign
         //get driverId
-        String driverId = xmlPath.getString("MRData.DriverTable.Driver.@driverId");
+        String driverId = xmlPath.getString("MRData.DriverTable.Driver.@driverId");//to get attribute we use @ sign
         System.out.println("driverId = " + driverId);
 
         //get code
-        String code = xmlPath.getString("MRData.DriverTable.Driver.@code");
+        String code = xmlPath.getString("MRData.DriverTable.Driver.@code");//to get attribute we use @ sign
         System.out.println("code = " + code);
 
         //get url
-        String url = xmlPath.getString("MRData.DriverTable.Driver.@url");
+        String url = xmlPath.getString("MRData.DriverTable.Driver.@url");//to get attribute we use @ sign
         System.out.println("url = " + url);
 
     }
