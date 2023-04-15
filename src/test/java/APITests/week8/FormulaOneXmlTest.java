@@ -27,12 +27,15 @@ public class FormulaOneXmlTest {
                                     .extract().response();
 
         XmlPath xmlPath = response.xmlPath();
+
         //get given name
         String givenName = xmlPath.getString("MRData.DriverTable.Driver.GivenName");
         System.out.println("givenName = " + givenName);
+
         //get family name
         String familyName = xmlPath.getString("MRData.DriverTable.Driver.FamilyName");
         System.out.println("familyName = " + familyName);
+
         //if you are trying to get attribute we use @ sign
         //get driverId
         String driverId = xmlPath.getString("MRData.DriverTable.Driver.@driverId");
@@ -41,6 +44,7 @@ public class FormulaOneXmlTest {
         //get code
         String code = xmlPath.getString("MRData.DriverTable.Driver.@code");
         System.out.println("code = " + code);
+
         //get url
         String url = xmlPath.getString("MRData.DriverTable.Driver.@url");
         System.out.println("url = " + url);
