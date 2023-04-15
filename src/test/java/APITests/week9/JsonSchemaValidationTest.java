@@ -42,7 +42,7 @@ public class JsonSchemaValidationTest extends SpartanAuthTestBase {
                 .statusCode(200)
                 //what if you have your .json file not under resources following way -->
                 .body(JsonSchemaValidator.matchesJsonSchema(new File("src/test/java/APITests/week9/allSpartansSchema.json")));
-
+                                //matchesJsonSchemaInClasspath is not used. Below part is different
     }
 
     //homework
