@@ -36,6 +36,10 @@ public class FormulaOneXmlTest {
         String familyName = xmlPath.getString("MRData.DriverTable.Driver.FamilyName");
         System.out.println("familyName = " + familyName);
 
+        //get DateOfBirth
+        String DateOfBirth = xmlPath.getString("MRData.DriverTable.Driver.DateOfBirth");
+        System.out.println("DateOfBirth = " + DateOfBirth);
+
         //if you are trying to get attribute we use @ sign
         //get driverId
         String driverId = xmlPath.getString("MRData.DriverTable.Driver.@driverId");
