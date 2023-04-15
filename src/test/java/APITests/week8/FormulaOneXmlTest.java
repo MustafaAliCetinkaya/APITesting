@@ -26,6 +26,8 @@ public class FormulaOneXmlTest {
                              .then().statusCode(200).log().all()
                                     .extract().response();
 
+        response.prettyPrint();
+
         XmlPath xmlPath = response.xmlPath();
 
         //get given name
@@ -50,7 +52,7 @@ public class FormulaOneXmlTest {
         System.out.println("code = " + code);
 
         //get url
-        String url = xmlPath.getString("MRData.DriverTable.Driver.@url");//to get attribute we use @ sign
+        String url = xmlPath.getString("MRData.DriverTable.Driver.@url");
         System.out.println("url = " + url);
 
     }
