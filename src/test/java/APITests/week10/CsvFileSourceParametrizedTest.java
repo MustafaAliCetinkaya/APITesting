@@ -15,9 +15,11 @@ public class CsvFileSourceParametrizedTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/postalcode.csv",numLinesToSkip = 1)
     public void zipCodeTestWithFile(String stateArg,String cityArg,int zipCountArg){
+
         System.out.println("stateArg = " + stateArg);
         System.out.println("cityArg = " + cityArg);
         System.out.println("zipCountArg = " + zipCountArg);
+
         //send a request and verify place number matches with zipCount
         given()
                 .baseUri("https://api.zippopotam.us")
