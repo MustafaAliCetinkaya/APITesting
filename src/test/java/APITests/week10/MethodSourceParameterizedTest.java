@@ -25,6 +25,7 @@ public class MethodSourceParameterizedTest {
 
         List<String> nameList = Arrays.asList("Parvin","Nasim","mohamad","Nadir","Saim","Gurhan","Murodil");
         return  nameList;
+
     }
 
     public static List<Map<String,String>> getExcelData(){

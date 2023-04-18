@@ -13,7 +13,7 @@ public class CsvFileSourceParametrizedTest {
     // Get the data from csv source
     // GET https://api.zippopotam.us/us/{state}/{city}
     @ParameterizedTest
-    @CsvFileSource(resources = "/postalcode.csv",numLinesToSkip = 1)
+    @CsvFileSource(resources = "/postalcode.csv",numLinesToSkip = 1)//Skips the column names part, do not use them as a parameter
     public void zipCodeTestWithFile(String stateArg,String cityArg,int zipCountArg){
 
         System.out.println("stateArg = " + stateArg);

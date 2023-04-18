@@ -43,6 +43,4 @@ public class ParametrizedTestInJunit5 {
                     .statusCode(200);
 
     }
-
-
 }
