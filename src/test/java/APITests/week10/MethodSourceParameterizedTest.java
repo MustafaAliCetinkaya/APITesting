@@ -12,7 +12,6 @@ public class MethodSourceParameterizedTest {
     @ParameterizedTest
     @MethodSource("getNames")
     public void testPrintNames(String name){
-
         System.out.println("name = " + name);
     }
 
@@ -33,7 +32,6 @@ public class MethodSourceParameterizedTest {
         ExcelUtil vytrackFile = new ExcelUtil("src/test/resources/Vytracktestdata.xlsx","QA3-all");
         //return sheet as a alist of map
         return vytrackFile.getDataList();
-
     }
 
     @ParameterizedTest
@@ -44,6 +42,4 @@ public class MethodSourceParameterizedTest {
         System.out.println("LastName: "+userInfo.get("lastname"));
 
     }
-
-
 }
