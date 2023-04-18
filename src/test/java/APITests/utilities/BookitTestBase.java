@@ -23,11 +23,11 @@ public class BookitTestBase {
                                 .accept(ContentType.JSON)
                                 .header("Authorization",getTokenByRole("teacher"))
                                 .log().all();
-        studentMemberReqSpec =given()
+        studentMemberReqSpec = given()
                                .accept(ContentType.JSON)
                                 .header("Authorization",getTokenByRole("student-member"))
                                 .log().all();
-        studentLeaderReqSpec =given()
+        studentLeaderReqSpec = given()
                              .accept(ContentType.JSON)
                              .header("Authorization",getTokenByRole("student-leader"))
                              .log().all();
