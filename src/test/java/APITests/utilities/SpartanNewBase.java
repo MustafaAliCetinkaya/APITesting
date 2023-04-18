@@ -36,7 +36,7 @@ public class SpartanNewBase {
        responseSpec = expect().statusCode(200)
                 .and()
                 .contentType(ContentType.JSON)
-                .logDetail(LogDetail.ALL);  //logging with response specficiation
+                .logDetail(LogDetail.ALL);  //logging with response specification
 
 
 
@@ -44,7 +44,7 @@ public class SpartanNewBase {
 
     @AfterAll
     public static void close(){
-        //reset the info we set above ,method comes from restassured
+        //reset the info we set above ,method comes from rest assured
         reset();
     }
 }
