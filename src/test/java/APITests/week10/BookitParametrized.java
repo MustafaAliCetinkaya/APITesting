@@ -27,7 +27,7 @@ public class BookitParametrized {
 
             given()
                     .accept(ContentType.JSON)
-                    .baseUri("http://api.qa3.bookit.cydeo.com")
+                    .baseUri("http://api.qa2.bookit.cydeo.com")
                     .queryParams(user) //I pass map directly because query param keys and map keys are equal
             .when()
                     .get("/sign")
