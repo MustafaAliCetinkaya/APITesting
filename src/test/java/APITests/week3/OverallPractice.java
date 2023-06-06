@@ -95,7 +95,7 @@ public class OverallPractice {
         System.out.println("response.header(\"Date\") = " + response.header("Date"));
         System.out.println("response.header(\"Content-Length\") = " + response.header("Content-Length"));
         //Verify header paired infos from response
-        Assertions.assertTrue(response.header("Date").contains("Fri, 31 Mar 2023"));
+        Assertions.assertTrue(response.header("Date").contains("Tue, 06 Jun 2023"));
         Assertions.assertEquals("Miss from cloudfront",response.header("X-Cache"));
 
     }
